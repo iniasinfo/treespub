@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TREES Publishing | Technology, Research, Engineering & Empirical Sciences</title>
+
+    <meta name="description"
+          content="TREES Publishing is an open access scholarly publishing company focused on technology, research, engineering and empirical sciences.">
+
+    <!-- Bootstrap 5.3 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        :root {
+            --navy: #10263b;
+            --navy-dark: #081a2a;
+            --blue: #1d5278;
+            --gold: #b99655;
+
+            --cream: #f7f5ef;
+            --paper: #fcfbf8;
+            --white: #ffffff;
+
+            --text: #1c2730;
+            --muted: #68757e;
+            --line: #dfe4e7;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: var(--white);
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 16px;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Libre Baskerville", serif;
+        }
+
+
+        /* =====================================
+           NAVIGATION
+        ===================================== */
+
+        .site-header {
+            background: rgba(255,255,255,.97);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            min-height: 78px;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+
+        .brand-symbol {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--navy);
+            color: var(--navy);
+
+            font-family: "Libre Baskerville", serif;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+
+        .brand-name {
+            font-family: "Libre Baskerville", serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+
+        .brand-subtitle {
+            display: block;
+            font-family: "DM Sans", sans-serif;
+            font-size: .61rem;
+            font-weight: 500;
+            letter-spacing: .13em;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+
+        .nav-link {
+            color: #45535d !important;
+            font-size: .91rem;
+            font-weight: 500;
+            padding: 28px 14px !important;
+        }
+
+
+        .nav-link:hover {
+            color: var(--navy) !important;
+        }
+
+
+        .nav-cta {
+            margin-left: 15px;
+            padding: 10px 19px !important;
+
+            border: 1px solid var(--navy);
+            color: var(--navy) !important;
+        }
+
+
+        .nav-cta:hover {
+            background: var(--navy);
+            color: white !important;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(247,245,239,.97) 0%,
+                    rgba(247,245,239,.94) 52%,
+                    rgba(247,245,239,.70) 100%
+                ),
+                var(--cream);
+
+            min-height: 690px;
+
+            display: flex;
+            align-items: center;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            right: -180px;
+            top: -220px;
+
+            width: 650px;
+            height: 650px;
+
+            border: 1px solid rgba(16,38,59,.08);
+            border-radius: 50%;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            right: 45px;
+            bottom: -250px;
+
+            width: 540px;
+            height: 540px;
+
+            border: 1px solid rgba(185,150,85,.15);
+            border-radius: 50%;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 100px 0;
+        }
+
+
+        .kicker {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            color: var(--gold);
+
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+
+        .kicker::before {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+
+        .hero h1 {
+            max-width: 850px;
+
+            color: var(--navy);
+
+            font-size: clamp(3rem, 5.7vw, 5.7rem);
+            line-height: 1.08;
+
+            margin-bottom: 28px;
+        }
+
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--blue);
+        }
+
+
+        .hero-description {
+            max-width: 690px;
+
+            color: #596873;
+
+            font-size: 1.12rem;
+            line-height: 1.85;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+
+        .btn-trees {
+            background: var(--navy);
+            border: 1px solid var(--navy);
+
+            color: white;
+
+            border-radius: 2px;
+
+            padding: 13px 23px;
+
+            font-size: .88rem;
+            font-weight: 600;
+
+            transition: .25s ease;
+        }
+
+
+        .btn-trees:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        .btn-trees-outline {
+            background: transparent;
+            border: 1px solid #87939a;
+
+            color: var(--navy);
+
+            border-radius: 2px;
+
+            padding: 13px 23px;
+
+            font-size: .88rem;
+            font-weight: 600;
+        }
+
+
+        .btn-trees-outline:hover {
+            border-color: var(--navy);
+            background: var(--navy);
+            color: white;
+        }
+
+
+        .hero-status {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            margin-top: 32px;
+
+            color: #75818a;
+            font-size: .78rem;
+        }
+
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+
+        /* =====================================
+           SECTION BASICS
+        ===================================== */
+
+        .section {
+            padding: 105px 0;
+        }
+
+
+        .section-paper {
+            background: var(--paper);
+        }
+
+
+        .section-navy {
+            background: var(--navy);
+            color: white;
+        }
+
+
+        .section-kicker {
+            color: var(--gold);
+
+            font-size: .73rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        .section-title {
+            color: var(--navy);
+
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.25;
+
+            margin-bottom: 24px;
+        }
+
+
+        .section-navy .section-title {
+            color: white;
+        }
+
+
+        .section-text {
+            color: var(--muted);
+
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+
+        .section-navy .section-text {
+            color: rgba(255,255,255,.67);
+        }
+
+
+        /* =====================================
+           ABOUT
+        ===================================== */
+
+        .about-rule {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+
+            margin: 28px 0;
+        }
+
+
+        .about-note {
+            padding: 25px 0 0 28px;
+
+            border-left: 2px solid var(--gold);
+
+            color: var(--navy);
+
+            font-family: "Libre Baskerville", serif;
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================
+           RESEARCH AREAS
+        ===================================== */
+
+        .area-card {
+            position: relative;
+
+            height: 100%;
+
+            padding: 38px 35px;
+
+            background: white;
+
+            border: 1px solid var(--line);
+
+            transition: .3s ease;
+        }
+
+
+        .area-card::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 3px;
+            height: 0;
+
+            background: var(--gold);
+
+            transition: .3s ease;
+        }
+
+
+        .area-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 45px rgba(16,38,59,.08);
+
+            border-color: #ccd4d9;
+        }
+
+
+        .area-card:hover::before {
+            height: 100%;
+        }
+
+
+        .area-number {
+            color: var(--gold);
+
+            font-family: "Libre Baskerville", serif;
+            font-size: .82rem;
+
+            margin-bottom: 25px;
+        }
+
+
+        .area-card h3 {
+            color: var(--navy);
+
+            font-size: 1.3rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        .area-card p {
+            color: var(--muted);
+
+            font-size: .92rem;
+            line-height: 1.75;
+
+            margin: 0;
+        }
+
+
+        /* =====================================
+           PRINCIPLES
+        ===================================== */
+
+        .principle-list {
+            margin-top: 15px;
+        }
+
+
+        .principle {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+
+            padding: 30px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.13);
+        }
+
+
+        .principle:last-child {
+            border-bottom: none;
+        }
+
+
+        .principle-number {
+            color: var(--gold);
+
+            font-family: "Libre Baskerville", serif;
+            font-size: .9rem;
+        }
+
+
+        .principle h3 {
+            color: white;
+
+            font-size: 1.25rem;
+
+            margin-bottom: 10px;
+        }
+
+
+        .principle p {
+            color: rgba(255,255,255,.62);
+
+            font-size: .92rem;
+            line-height: 1.75;
+
+            margin: 0;
+        }
+
+
+        /* =====================================
+           AUDIENCE
+        ===================================== */
+
+        .audience-intro {
+            max-width: 700px;
+        }
+
+
+        .audience-card {
+            height: 100%;
+
+            padding: 40px;
+
+            border: 1px solid var(--line);
+            background: white;
+
+            transition: .25s ease;
+        }
+
+
+        .audience-card:hover {
+            border-color: var(--navy);
+        }
+
+
+        .audience-icon {
+            color: var(--gold);
+
+            font-size: 1.6rem;
+
+            margin-bottom: 25px;
+        }
+
+
+        .audience-card h3 {
+            color: var(--navy);
+
+            font-size: 1.3rem;
+
+            margin-bottom: 14px;
+        }
+
+
+        .audience-card p {
+            color: var(--muted);
+
+            font-size: .92rem;
+            line-height: 1.75;
+
+            margin: 0;
+        }
+
+
+        /* =====================================
+           JOURNAL PLACEHOLDER
+        ===================================== */
+
+        .future-journal {
+            border: 1px solid rgba(255,255,255,.15);
+
+            padding: 42px;
+
+            background: rgba(255,255,255,.035);
+        }
+
+
+        .future-journal-label {
+            color: var(--gold);
+
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+
+            margin-bottom: 17px;
+        }
+
+
+        .future-journal h3 {
+            color: white;
+
+            font-size: 1.55rem;
+
+            margin-bottom: 14px;
+        }
+
+
+        .future-journal p {
+            color: rgba(255,255,255,.62);
+
+            font-size: .92rem;
+            line-height: 1.75;
+
+            margin: 0;
+        }
+
+
+        /* =====================================
+           JOIN / CTA
+        ===================================== */
+
+        .cta-section {
+            padding: 110px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7f5ef 0%,
+                    #eef2f2 100%
+                );
+        }
+
+
+        .cta-box {
+            max-width: 850px;
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .cta-box h2 {
+            color: var(--navy);
+
+            font-size: clamp(2rem, 4vw, 3.3rem);
+
+            margin-bottom: 22px;
+        }
+
+
+        .cta-box p {
+            color: var(--muted);
+
+            max-width: 680px;
+            margin: 0 auto 32px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================
+           CONTACT
+        ===================================== */
+
+        .contact-box {
+            padding: 45px;
+
+            border: 1px solid var(--line);
+
+            background: white;
+        }
+
+
+        .form-control {
+            border-radius: 2px;
+            border-color: #ccd4d9;
+
+            padding: 13px 15px;
+        }
+
+
+        .form-control:focus {
+            border-color: var(--blue);
+
+            box-shadow: 0 0 0 .15rem rgba(29,82,120,.10);
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: var(--navy-dark);
+            color: white;
+
+            padding: 65px 0 28px;
+        }
+
+
+        .footer-brand {
+            font-family: "Libre Baskerville", serif;
+
+            font-size: 1.35rem;
+            font-weight: 700;
+
+            letter-spacing: .05em;
+        }
+
+
+        .footer-description {
+            max-width: 430px;
+
+            color: rgba(255,255,255,.52);
+
+            font-size: .85rem;
+            line-height: 1.75;
+
+            margin-top: 16px;
+        }
+
+
+        .footer-heading {
+            color: white;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: .75rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        .footer-link {
+            display: block;
+
+            color: rgba(255,255,255,.55);
+
+            text-decoration: none;
+
+            font-size: .83rem;
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-link:hover {
+            color: white;
+        }
+
+
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(255,255,255,.1);
+
+            color: rgba(255,255,255,.35);
+
+            font-size: .75rem;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 991px) {
+
+            .nav-link {
+                padding: 10px 0 !important;
+            }
+
+            .nav-cta {
+                margin: 10px 0 0;
+                display: inline-block;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 90px 0;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+
+        @media (max-width: 767px) {
+
+            .brand-subtitle {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .principle {
+                grid-template-columns: 50px 1fr;
+            }
+
+            .contact-box {
+                padding: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="site-header">
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg">
+
+            <a class="brand" href="#">
+
+                <span class="brand-symbol">
+                    T
+                </span>
+
+                <span>
+                    <span class="brand-name">
+                        TREES
+                    </span>
+
+                    <span class="brand-subtitle">
+                        TECHNOLOGY · RESEARCH · ENGINEERING · EMPIRICAL SCIENCES
+                    </span>
+                </span>
+
+            </a>
+
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavigation"
+                aria-controls="mainNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div
+                class="collapse navbar-collapse"
+                id="mainNavigation">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#research">
+                            Research
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#principles">
+                            Principles
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#community">
+                            Community
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-cta" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="kicker">
+                An open access scholarly publisher
+            </div>
+
+
+            <h1>
+                Where rigorous research
+                finds an <em>open future.</em>
+            </h1>
+
+
+            <p class="hero-description">
+                TREES — Technology, Research, Engineering, & Empirical
+                Sciences — is being established as a new home for
+                high-quality scholarly communication and open access
+                research.
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a href="#about"
+                   class="btn btn-trees">
+
+                    Discover TREES
+
+                </a>
+
+
+                <a href="#community"
+                   class="btn btn-trees-outline">
+
+                    Join our community
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Our publishing programme is currently being developed.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-start">
+
+            <div class="col-lg-5">
+
+                <div class="section-kicker">
+                    About TREES
+                </div>
+
+                <h2 class="section-title">
+                    A publisher built from the foundations up.
+                </h2>
+
+                <div class="about-rule"></div>
+
+            </div>
+
+
+            <div class="col-lg-6 offset-lg-1">
+
+                <p class="section-text">
+                    TREES is a new open access publishing company focused
+                    on technology, research, engineering, and empirical
+                    sciences.
+                </p>
+
+                <p class="section-text">
+                    We are creating the foundations for a publishing
+                    programme designed around rigorous scholarship,
+                    transparent editorial practices, accessibility, and
+                    responsible dissemination of research.
+                </p>
+
+                <p class="section-text">
+                    Rather than beginning with a catalogue of journals,
+                    TREES is beginning with a clear purpose: to build
+                    scholarly publishing platforms that researchers can
+                    trust and readers can access.
+                </p>
+
+
+                <div class="about-note">
+                    We are at the beginning of our journey — and we believe
+                    the foundations matter.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     RESEARCH
+================================================== -->
+
+<section class="section section-paper" id="research">
+
+    <div class="container">
+
+        <div class="row mb-5">
+
+            <div class="col-lg-7">
+
+                <div class="section-kicker">
+                    Areas of interest
+                </div>
+
+                <h2 class="section-title">
+                    Research without unnecessary boundaries.
+                </h2>
+
+                <p class="section-text">
+                    TREES will develop publishing initiatives across
+                    disciplines where evidence, innovation, engineering,
+                    technology, and scientific inquiry intersect.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Technology
+                    </h3>
+
+                    <p>
+                        Computing, artificial intelligence, information
+                        systems, digital technologies, emerging technologies,
+                        and technological innovation.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Engineering
+                    </h3>
+
+                    <p>
+                        Engineering systems, design, materials, energy,
+                        infrastructure, manufacturing, and applied
+                        technological research.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Empirical Sciences
+                    </h3>
+
+                    <p>
+                        Experimental, observational, quantitative, and
+                        evidence-based research across the empirical
+                        sciences.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Applied Research
+                    </h3>
+
+                    <p>
+                        Research translating scientific understanding into
+                        practical knowledge, applications, technologies,
+                        and solutions.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Interdisciplinary Research
+                    </h3>
+
+                    <p>
+                        Work crossing disciplinary boundaries to address
+                        complex questions that cannot be adequately explored
+                        from a single perspective.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="area-card">
+
+                    <div class="area-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Emerging Fields
+                    </h3>
+
+                    <p>
+                        New areas of scientific and technological inquiry
+                        where emerging evidence and ideas may shape the
+                        research landscape of tomorrow.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PRINCIPLES
+================================================== -->
+
+<section class="section section-navy" id="principles">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <div class="section-kicker">
+                    Publishing principles
+                </div>
+
+                <h2 class="section-title">
+                    What we intend to stand for.
+                </h2>
+
+                <p class="section-text">
+                    A publishing company earns trust over time. TREES is
+                    establishing its principles before establishing its
+                    journal portfolio.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6 offset-lg-1">
+
+                <div class="principle-list">
+
+
+                    <div class="principle">
+
+                        <div class="principle-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Open access
+                            </h3>
+
+                            <p>
+                                We believe scholarly knowledge should be
+                                accessible to readers without unnecessary
+                                barriers.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="principle">
+
+                        <div class="principle-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Editorial integrity
+                            </h3>
+
+                            <p>
+                                Editorial decisions should be grounded in
+                                scholarly quality, appropriate methodology,
+                                and transparent processes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="principle">
+
+                        <div class="principle-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Research integrity
+                            </h3>
+
+                            <p>
+                                We will promote responsible research,
+                                ethical conduct, transparency, and
+                                reproducibility wherever appropriate.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="principle">
+
+                        <div class="principle-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Community
+                            </h3>
+
+                            <p>
+                                Authors, reviewers, editors, institutions,
+                                and readers are essential participants in
+                                the scholarly publishing ecosystem.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="principle">
+
+                        <div class="principle-number">
+                            05
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Long-term thinking
+                            </h3>
+
+                            <p>
+                                We aim to build enduring scholarly
+                                infrastructure rather than optimise for
+                                short-term publication volume.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     COMMUNITY
+================================================== -->
+
+<section class="section" id="community">
+
+    <div class="container">
+
+        <div class="audience-intro mb-5">
+
+            <div class="section-kicker">
+                Our community
+            </div>
+
+            <h2 class="section-title">
+                Help shape what comes next.
+            </h2>
+
+            <p class="section-text">
+                TREES is still at the foundation stage. We welcome
+                conversations with people who want to contribute to the
+                development of thoughtful, credible, open scholarly
+                publishing.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-4">
+
+                <div class="audience-card">
+
+                    <div class="audience-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+
+                    <h3>
+                        Researchers & Authors
+                    </h3>
+
+                    <p>
+                        Tell us what you need from a modern open access
+                        publisher and what would make the publishing process
+                        more useful to researchers.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="audience-card">
+
+                    <div class="audience-icon">
+                        <i class="bi bi-journal-check"></i>
+                    </div>
+
+                    <h3>
+                        Editors & Reviewers
+                    </h3>
+
+                    <p>
+                        Contribute to conversations around peer review,
+                        editorial standards, research integrity, and the
+                        future journal programme.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="audience-card">
+
+                    <div class="audience-icon">
+                        <i class="bi bi-buildings"></i>
+                    </div>
+
+                    <h3>
+                        Institutions
+                    </h3>
+
+                    <p>
+                        Explore future opportunities for collaboration,
+                        scholarly communication, and responsible research
+                        dissemination.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FUTURE JOURNALS
+================================================== -->
+
+<section class="section section-navy">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="section-kicker">
+                    The publishing programme
+                </div>
+
+                <h2 class="section-title">
+                    Journals will follow.
+                    Foundations come first.
+                </h2>
+
+                <p class="section-text">
+                    TREES is currently developing its editorial framework,
+                    publishing infrastructure, policies, and future journal
+                    programme.
+                </p>
+
+                <p class="section-text">
+                    We will introduce individual journals when their scope,
+                    editorial leadership, policies, and publishing
+                    infrastructure are ready.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5 offset-lg-1">
+
+                <div class="future-journal">
+
+                    <div class="future-journal-label">
+                        Coming in due course
+                    </div>
+
+                    <h3>
+                        Our first journals
+                    </h3>
+
+                    <p>
+                        Journal launches and calls for editors will be
+                        announced here as the TREES publishing programme
+                        develops.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div class="section-kicker justify-content-center">
+                Stay informed
+            </div>
+
+            <h2>
+                Be there at the beginning.
+            </h2>
+
+            <p>
+                Receive occasional updates about TREES, our publishing
+                programme, future journal launches, editorial opportunities,
+                and developments in open scholarly publishing.
+            </p>
+
+            <a href="#contact"
+               class="btn btn-trees">
+
+                Stay connected
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-5">
+
+                <div class="section-kicker">
+                    Contact TREES
+                </div>
+
+                <h2 class="section-title">
+                    Start a conversation.
+                </h2>
+
+                <p class="section-text">
+                    Interested in TREES, future journals, editorial
+                    opportunities, research collaboration, or simply
+                    following our progress?
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6 offset-lg-1">
+
+                <div class="contact-box">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <label
+                                for="name"
+                                class="form-label fw-semibold">
+
+                                Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-control"
+                                placeholder="Your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label fw-semibold">
+
+                                Email
+
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="you@example.com"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label
+                                for="message"
+                                class="form-label fw-semibold">
+
+                                Message
+
+                            </label>
+
+                            <textarea
+                                id="message"
+                                class="form-control"
+                                rows="4"
+                                placeholder="How can we help?"></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-trees">
+
+                            Send enquiry
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+                <div class="footer-brand">
+                    TREES
+                </div>
+
+                <p class="footer-description">
+                    Technology, Research, Engineering, & Empirical Sciences.
+                    An open access scholarly publishing company being built
+                    for the future of research.
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <div class="footer-heading">
+                    Explore
+                </div>
+
+                <a href="#about" class="footer-link">
+                    About
+                </a>
+
+                <a href="#research" class="footer-link">
+                    Research
+                </a>
+
+                <a href="#principles" class="footer-link">
+                    Principles
+                </a>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="footer-heading">
+                    Connect
+                </div>
+
+                <a href="#community" class="footer-link">
+                    Community
+                </a>
+
+                <a href="#contact" class="footer-link">
+                    Contact
+                </a>
+
+                <a href="#" class="footer-link">
+                    Privacy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    © 2026 TREES Publishing. All rights reserved.
+                </div>
+
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                    Technology · Research · Engineering · Empirical Sciences
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+</html>

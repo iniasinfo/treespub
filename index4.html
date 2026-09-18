@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TREES Press — Technology, Research, Engineering, & Empirical Sciences</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/playfair-display@latest/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/eb-garamond@latest/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/index.css" />
+<style>
+  :root {
+    --navy-deep: #0a1f44;
+    --navy: #132a5e;
+    --navy-soft: #1e3a7a;
+    --ivory: #f5f1e8;
+    --ivory-light: #faf7f0;
+    --ivory-dark: #e8e2d4;
+    --gold: #b8935a;
+    --gold-light: #d4b87a;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'EB Garamond', 'Georgia', serif;
+    background: var(--ivory-light);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .font-display { font-family: 'Playfair Display', 'Georgia', serif; }
+  .font-serif { font-family: 'EB Garamond', 'Georgia', serif; }
+  .font-sans { font-family: 'Inter', sans-serif; }
+
+  /* Top bar */
+  .top-bar {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(184, 147, 90, 0.25);
+  }
+  .top-bar .divider {
+    color: var(--gold);
+    margin: 0 0.6rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    background: var(--ivory-light);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--ivory-dark);
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--navy-deep);
+    text-decoration: none;
+  }
+  .navbar-brand img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--navy-deep);
+    line-height: 1;
+  }
+  .brand-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--navy-deep) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s;
+  }
+  .nav-link:hover { color: var(--gold) !important; }
+  .nav-link.for-link {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.3rem !important;
+  }
+  .nav-link.for-link:hover { border-bottom-color: var(--gold); }
+  .nav-link.active-for { color: var(--gold) !important; border-bottom-color: var(--gold); }
+
+  .btn-navy {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    border: 1px solid var(--navy-deep);
+    padding: 0.6rem 1.5rem;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-navy:hover {
+    background: transparent;
+    color: var(--navy-deep);
+  }
+  .btn-gold {
+    background: transparent;
+    color: var(--navy-deep);
+    border: 1px solid var(--navy-deep);
+    padding: 0.6rem 1.5rem;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-gold:hover {
+    background: var(--navy-deep);
+    color: var(--ivory);
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--ivory-light);
+    padding: 5rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero-lead {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .hero-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ivory-dark);
+  }
+  .hero-meta strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--navy-deep);
+    margin-bottom: 0.2rem;
+  }
+  .hero-visual {
+    position: relative;
+    padding: 2rem;
+  }
+  .hero-visual img {
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 30px 80px rgba(10, 31, 68, 0.25);
+    transform: rotate(-2deg);
+    transition: transform 0.6s;
+  }
+  .hero-visual:hover img { transform: rotate(0); }
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/1442d274a-2bed-475b-b834-5c22d918d7ba.png') center/cover;
+    opacity: 0.08;
+    z-index: -1;
+  }
+  .hero-journal-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--ivory-light);
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Section divider */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 auto 2rem;
+    max-width: 200px;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-divider i {
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy-deep);
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+  .section-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--muted);
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Statement section */
+  .statement-section {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .statement-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/1442d274a-2bed-475b-b834-5c22d918d7ba.png') center/cover;
+    opacity: 0.15;
+  }
+  .statement-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ivory);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .statement-quote::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    position: absolute;
+    top: -3rem;
+    left: -1rem;
+    opacity: 0.4;
+    line-height: 1;
+  }
+  .statement-sig {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* For Authors/Editors/Institutions */
+  .pillars-section {
+    background: var(--ivory);
+    padding: 6rem 0;
+  }
+  .pillar-card {
+    background: var(--ivory-light);
+    border: 1px solid var(--ivory-dark);
+    padding: 3rem 2.5rem;
+    height: 100%;
+    transition: all 0.4s;
+    position: relative;
+  }
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .pillar-card:hover {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(10, 31, 68, 0.2);
+  }
+  .pillar-card:hover::before { transform: scaleX(1); }
+  .pillar-card:hover .pillar-title { color: var(--ivory); }
+  .pillar-card:hover .pillar-desc { color: rgba(245, 241, 232, 0.8); }
+  .pillar-card:hover .pillar-link { color: var(--gold-light); }
+  .pillar-card:hover .pillar-icon { color: var(--gold); }
+  .pillar-icon {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    transition: color 0.4s;
+  }
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 1rem;
+    transition: color 0.4s;
+  }
+  .pillar-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    transition: color 0.4s;
+  }
+  .pillar-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .pillar-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--ivory-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: border-color 0.4s;
+  }
+  .pillar-card:hover .pillar-list li { border-color: rgba(245, 241, 232, 0.15); }
+  .pillar-list li i {
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+  .pillar-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+  }
+  .pillar-link:hover { color: var(--gold); gap: 0.8rem; }
+
+  /* Journals section */
+  .journals-section {
+    background: var(--ivory-light);
+    padding: 6rem 0;
+  }
+  .journal-card {
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid var(--ivory-dark);
+    transition: all 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .journal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(10, 31, 68, 0.15);
+    border-color: var(--gold);
+  }
+  .journal-cover {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background: var(--navy-deep);
+    aspect-ratio: 3/4;
+  }
+  .journal-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .journal-card:hover .journal-cover img { transform: scale(1.05); }
+  .journal-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--ivory-light);
+    color: var(--navy-deep);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    font-weight: 600;
+  }
+  .journal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .journal-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .journal-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+  }
+  .journal-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    padding-top: 1rem;
+    border-top: 1px solid var(--ivory-dark);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Standards */
+  .standards-section {
+    background: var(--ivory);
+    padding: 6rem 0;
+  }
+  .standard-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--ivory-dark);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .standard-item:last-child { border-bottom: none; }
+  .standard-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 80px;
+  }
+  .standard-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy-deep);
+    margin-bottom: 0.5rem;
+  }
+  .standard-content p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--navy-deep);
+    color: var(--ivory);
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/1442d274a-2bed-475b-b834-5c22d918d7ba.png') center/cover;
+    opacity: 0.1;
+  }
+  .cta-section .section-label { color: var(--gold); }
+  .cta-section .section-title { color: var(--ivory); }
+  .cta-section .section-subtitle { color: rgba(245, 241, 232, 0.75); }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  .btn-ivory {
+    background: var(--ivory);
+    color: var(--navy-deep);
+    border: 1px solid var(--ivory);
+    padding: 0.85rem 2rem;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-ivory:hover {
+    background: transparent;
+    color: var(--ivory);
+  }
+  .btn-outline-ivory {
+    background: transparent;
+    color: var(--ivory);
+    border: 1px solid var(--ivory);
+    padding: 0.85rem 2rem;
+    border-radius: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .btn-outline-ivory:hover {
+    background: var(--ivory);
+    color: var(--navy-deep);
+  }
+
+  /* Footer */
+  footer {
+    background: #06152f;
+    color: rgba(245, 241, 232, 0.7);
+    padding: 4rem 0 2rem;
+    border-top: 3px solid var(--gold);
+  }
+  footer h6 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+  }
+  footer ul { list-style: none; padding: 0; }
+  footer ul li { margin-bottom: 0.6rem; }
+  footer ul li a {
+    color: rgba(245, 241, 232, 0.6);
+    text-decoration: none;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  footer ul li a:hover { color: var(--gold); }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .footer-brand img { width: 50px; height: 50px; }
+  .footer-brand-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ivory);
+    letter-spacing: 2px;
+  }
+  .footer-tagline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(245, 241, 232, 0.6);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(245, 241, 232, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: rgba(245, 241, 232, 0.5);
+    text-align: center;
+  }
+
+  /* Fade in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.9s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 3rem 0 4rem; }
+    .hero-meta { flex-direction: column; gap: 1rem; }
+    .standard-item { flex-direction: column; gap: 0.5rem; }
+    .standard-num { font-size: 2.5rem; }
+    section { padding: 4rem 0; }
+    .pillar-card { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <div class="container d-flex justify-content-between align-items-center flex-wrap">
+    <div>
+      <span>Est. 2026</span>
+      <span class="divider">·</span>
+      <span>Open Access Publisher</span>
+      <span class="divider">·</span>
+      <span class="d-none d-md-inline">A New Imprint in Scholarly Publishing</span>
+    </div>
+    <div class="font-sans">
+      <a href="#" class="text-decoration-none text-light me-3"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="text-decoration-none text-light me-3"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="text-decoration-none text-light"><i class="bi bi-envelope"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/194126d37-2766-4fd0-8bd7-4109b3eab0db.png" alt="TREES Press" />
+      <div class="brand-text">
+        <span class="brand-name">TREES</span>
+        <span class="brand-sub">Technology · Research · Engineering · Sciences</span>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#journals">Journals</a></li>
+        <li class="nav-item"><a class="nav-link for-link" href="#for-authors">Why TREES</a></li>
+        <li class="nav-item"><a class="nav-link" href="#standards">Standards</a></li>
+      </ul>
+      <div class="d-flex gap-2">
+        <a href="#" class="btn btn-navy">Submit</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 fade-in">
+        <div class="hero-eyebrow">A New Imprint in Scholarly Publishing</div>
+        <h1>Cultivating Knowledge, <em>Rooted in Rigor</em></h1>
+        <p class="hero-lead">TREES Press is an independent open access publisher devoted to the advancement of Technology, Research, Engineering, and Empirical Sciences. We are building a house of scholarship where quality, integrity, and accessibility stand as our founding principles.</p>
+        <div class="hero-actions">
+          <a href="#for-authors" class="btn btn-navy">For Authors</a>
+          <a href="#journals" class="btn btn-gold">Our Journals</a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <strong>Open Access</strong>
+            <span>Gold OA · CC-BY</span>
+          </div>
+          <div>
+            <strong>Peer Reviewed</strong>
+            <span>Double-blind</span>
+          </div>
+          <div>
+            <strong>Est. 2026</strong>
+            <span>Launching Soon</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 fade-in">
+        <div class="hero-visual text-center">
+          <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/17124d56b-1afd-4ecd-8c84-5bec01e4788b.png" alt="Journal of Technology Studies" />
+          <div class="hero-journal-label">Featured Journal · In Preparation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Statement -->
+<section class="statement-section">
+  <div class="container">
+    <div class="fade-in">
+      <p class="statement-quote">
+        Scholarship grows best when it is rooted in rigorous inquiry, tended with editorial care, and made freely available to all who seek knowledge.
+      </p>
+      <div class="statement-sig">— The Founding Editors, TREES Press</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pillars: For Authors / For Editors / For Institutions -->
+<section class="pillars-section" id="for-authors">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label"><i class="bi bi-three-dots"></i></div>
+      <h2 class="section-title">A Publisher Built for Its Community</h2>
+      <p class="section-subtitle">Whether you are submitting research, stewarding a journal, or investing in open scholarship — TREES is designed with your work in mind.</p>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-lg-4 fade-in" id="for-authors-card">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="bi bi-pen"></i></div>
+          <h3 class="pillar-title">For Authors</h3>
+          <p class="pillar-desc">A transparent, respectful publication journey — from submission to dissemination — with editorial support at every stage.</p>
+          <ul class="pillar-list">
+            <li><i class="bi bi-diamond-fill"></i> Clear submission guidelines</li>
+            <li><i class="bi bi-diamond-fill"></i> Rigorous double-blind review</li>
+            <li><i class="bi bi-diamond-fill"></i> Fair APCs with full waivers</li>
+            <li><i class="bi bi-diamond-fill"></i> Retain your copyright</li>
+            <li><i class="bi bi-diamond-fill"></i> DOI & long-term archiving</li>
+          </ul>
+          <a href="#" class="pillar-link">Author Guidelines <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 fade-in" id="for-editors">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="bi bi-journal-bookmark"></i></div>
+          <h3 class="pillar-title">For Editors</h3>
+          <p class="pillar-desc">Editorial independence, modern workflow tools, and a publisher that treats your journal as a scholarly endeavor — not a product.</p>
+          <ul class="pillar-list">
+            <li><i class="bi bi-diamond-fill"></i> Full editorial autonomy</li>
+            <li><i class="bi bi-diamond-fill"></i> Modern submission platform</li>
+            <li><i class="bi bi-diamond-fill"></i> COPE-aligned ethics</li>
+            <li><i class="bi bi-diamond-fill"></i> Dedicated production team</li>
+            <li><i class="bi bi-diamond-fill"></i> Indexing & discoverability</li>
+          </ul>
+          <a href="#" class="pillar-link">Editorial Partnership <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 fade-in" id="for-institutions">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="bi bi-bank"></i></div>
+          <h3 class="pillar-title">For Institutions</h3>
+          <p class="pillar-desc">A publishing partner aligned with the values of open scholarship — transparent pricing, ethical standards, and global reach.</p>
+          <ul class="pillar-list">
+            <li><i class="bi bi-diamond-fill"></i> Institutional memberships</li>
+            <li><i class="bi bi-diamond-fill"></i> APC discount programs</li>
+            <li><i class="bi bi-diamond-fill"></i> Open access mandates</li>
+            <li><i class="bi bi-diamond-fill"></i> Library partnership models</li>
+            <li><i class="bi bi-diamond-fill"></i> Transparent reporting</li>
+          </ul>
+          <a href="#" class="pillar-link">Institutional Relations <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Journals -->
+<section class="journals-section" id="journals">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label"><i class="bi bi-three-dots"></i></div>
+      <h2 class="section-title">Our Journals</h2>
+      <p class="section-subtitle">Four peer-reviewed titles spanning the breadth of TREES — each in active development and preparing for inaugural issues.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 fade-in">
+        <div class="journal-card">
+          <div class="journal-cover">
+            <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/17124d56b-1afd-4ecd-8c84-5bec01e4788b.png" alt="Journal of Technology Studies" />
+            <span class="journal-status">In Preparation</span>
+          </div>
+          <div class="journal-subtitle">Technology</div>
+          <h3 class="journal-title">Journal of Technology Studies</h3>
+          <p class="journal-desc">Computer science, artificial intelligence, information systems, and emerging digital technologies.</p>
+          <div class="journal-meta">
+            <span>Quarterly</span>
+            <span>ISSN Pending</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-in">
+        <div class="journal-card">
+          <div class="journal-cover">
+            <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/16db009df-0dd4-4027-8d04-a2960bb53208.png" alt="Research Quarterly" />
+            <span class="journal-status">In Preparation</span>
+          </div>
+          <div class="journal-subtitle">Research</div>
+          <h3 class="journal-title">Research Quarterly</h3>
+          <p class="journal-desc">Interdisciplinary studies, methodology, and cross-domain scientific inquiry.</p>
+          <div class="journal-meta">
+            <span>Quarterly</span>
+            <span>ISSN Pending</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-in">
+        <div class="journal-card">
+          <div class="journal-cover">
+            <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/15a7e5d42-1858-462d-98dd-46886911117b.png" alt="Engineering Horizons" />
+            <span class="journal-status">In Preparation</span>
+          </div>
+          <div class="journal-subtitle">Engineering</div>
+          <h3 class="journal-title">Engineering Horizons</h3>
+          <p class="journal-desc">Civil, mechanical, electrical, chemical, and applied engineering disciplines.</p>
+          <div class="journal-meta">
+            <span>Quarterly</span>
+            <span>ISSN Pending</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-in">
+        <div class="journal-card">
+          <div class="journal-cover">
+            <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/16de15e2f-5f13-4d9c-9cf6-20886e58c1dd.png" alt="Empirical Sciences Review" />
+            <span class="journal-status">In Preparation</span>
+          </div>
+          <div class="journal-subtitle">Empirical Sciences</div>
+          <h3 class="journal-title">Empirical Sciences Review</h3>
+          <p class="journal-desc">Data-driven research across the natural, social, and applied sciences.</p>
+          <div class="journal-meta">
+            <span>Quarterly</span>
+            <span>ISSN Pending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Standards -->
+<section class="standards-section" id="standards">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 fade-in">
+        <div class="section-label" style="text-align:left;"><i class="bi bi-three-dots"></i></div>
+        <h2 class="section-title" style="text-align:left;">Editorial Standards & Ethics</h2>
+        <p class="section-subtitle" style="text-align:left; margin:0 0 2rem;">Every TREES journal operates under a unified code of scholarly conduct — because trust is the foundation of publishing.</p>
+        <a href="#" class="btn btn-navy">Read Our Policies</a>
+      </div>
+      <div class="col-lg-7 fade-in">
+        <div class="standard-item">
+          <div class="standard-num">I</div>
+          <div class="standard-content">
+            <h4>Peer Review Integrity</h4>
+            <p>Double-blind review conducted by active researchers. Reviewers are selected for expertise, not affiliation, and all conflicts are disclosed.</p>
+          </div>
+        </div>
+        <div class="standard-item">
+          <div class="standard-num">II</div>
+          <div class="standard-content">
+            <h4>Open Access by Principle</h4>
+            <p>Gold open access under CC-BY licensing. All articles freely available from the moment of publication — no embargoes, no paywalls.</p>
+          </div>
+        </div>
+        <div class="standard-item">
+          <div class="standard-num">III</div>
+          <div class="standard-content">
+            <h4>Ethical Alignment</h4>
+            <p>Full adherence to COPE guidelines, DOAJ criteria, and OASPA principles. Plagiarism screening via industry-standard tools on every submission.</p>
+          </div>
+        </div>
+        <div class="standard-item">
+          <div class="standard-num">IV</div>
+          <div class="standard-content">
+            <h4>Long-Term Preservation</h4>
+            <p>Every article receives a DOI and is archived with a trusted digital repository, ensuring permanent accessibility for future scholarship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" style="background: var(--ivory-light); padding: 6rem 0;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in">
+        <div class="section-label" style="text-align:left;"><i class="bi bi-three-dots"></i></div>
+        <h2 class="section-title" style="text-align:left;">About TREES Press</h2>
+        <p class="section-subtitle" style="text-align:left; margin:0 0 1.5rem;">Founded in 2026, TREES Press is an independent open access publisher with a singular mission: to cultivate scholarship that is rigorous, accessible, and enduring.</p>
+        <p style="font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem;">We are a young press — but our principles are old ones. Editorial independence. Author respect. Reader access. Scholarly integrity. These are not innovations; they are obligations.</p>
+        <p style="font-family: 'EB Garamond', serif; font-size: 1.1rem; color: var(--muted);">Our name — TREES — reflects what we believe scholarship should be: rooted in method, branching into discovery, and bearing fruit for generations of readers.</p>
+      </div>
+      <div class="col-lg-6 fade-in">
+        <div class="row g-3">
+          <div class="col-6">
+            <div style="background: var(--navy-deep); color: var(--ivory); padding: 2rem; height: 100%;">
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">01</div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--ivory);">Independence</h5>
+              <p class="mb-0 small" style="color: rgba(245, 241, 232, 0.7);">Free from commercial or political influence in editorial decisions.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--navy-deep); color: var(--ivory); padding: 2rem; height: 100%;">
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">02</div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--ivory);">Accessibility</h5>
+              <p class="mb-0 small" style="color: rgba(245, 241, 232, 0.7);">Knowledge belongs to everyone. Open access is not optional.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--navy-deep); color: var(--ivory); padding: 2rem; height: 100%;">
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">03</div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--ivory);">Rigor</h5>
+              <p class="mb-0 small" style="color: rgba(245, 241, 232, 0.7);">Peer review is sacred. We do not compromise on quality.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--navy-deep); color: var(--ivory); padding: 2rem; height: 100%;">
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem;">04</div>
+              <h5 style="font-family: 'Playfair Display', serif; color: var(--ivory);">Stewardship</h5>
+              <p class="mb-0 small" style="color: rgba(245, 241, 232, 0.7);">We preserve scholarship for the long arc of human knowledge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label"><i class="bi bi-three-dots"></i></div>
+      <h2 class="section-title">Join Us at the Beginning</h2>
+      <p class="section-subtitle">TREES Press is preparing to welcome its first submissions. Subscribe to receive announcements of journal launches, calls for papers, and founding-editor appointments.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-ivory"><i class="bi bi-envelope me-2"></i>Join the Mailing List</a>
+        <a href="#" class="btn btn-outline-ivory"><i class="bi bi-person me-2"></i>Become a Founding Editor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="https://image.qwenlm.ai/public_source/823bf067-f00a-4f13-9cb5-037cb60ee98c/194126d37-2766-4fd0-8bd7-4109b3eab0db.png" alt="TREES Press" />
+          <div class="footer-brand-text">TREES</div>
+        </div>
+        <p class="footer-tagline">Technology · Research · Engineering · Empirical Sciences</p>
+        <p class="small" style="color: rgba(245, 241, 232, 0.5);">An independent open access publisher, established 2026. Cultivating scholarship rooted in rigor.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>The Press</h6>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Founding Editors</a></li>
+          <li><a href="#">Ethics & Policies</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>For Authors</h6>
+        <ul>
+          <li><a href="#">Submit a Paper</a></li>
+          <li><a href="#">Author Guidelines</a></li>
+          <li><a href="#">APC & Waivers</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>For Editors</h6>
+        <ul>
+          <li><a href="#">Editorial Partnership</a></li>
+          <li><a href="#">Reviewer Resources</a></li>
+          <li><a href="#">Journal Proposal</a></li>
+          <li><a href="#">COPE Guidelines</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>For Institutions</h6>
+        <ul>
+          <li><a href="#">Memberships</a></li>
+          <li><a href="#">Library Partners</a></li>
+          <li><a href="#">Open Access Mandates</a></li>
+          <li><a href="#">Annual Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="mb-0">&copy; 2026 TREES Press. All rights reserved. · Technology, Research, Engineering, & Empirical Sciences</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        const nav = document.getElementById('mainNav');
+        if (nav.classList.contains('show')) {
+          new bootstrap.Collapse(nav).hide();
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
